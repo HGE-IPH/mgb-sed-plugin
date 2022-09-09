@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:40 2019
+        MODULE NEWTON_H__genmod
+          INTERFACE 
+            SUBROUTINE NEWTON_H(QMTRECX,HMTRECX,SFTRECX)
+              REAL(KIND=4) :: QMTRECX
+              REAL(KIND=4) :: HMTRECX
+              REAL(KIND=4) :: SFTRECX
+            END SUBROUTINE NEWTON_H
+          END INTERFACE 
+        END MODULE NEWTON_H__genmod

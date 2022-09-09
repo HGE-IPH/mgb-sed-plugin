@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Apr 30 12:10:11 2019
+        MODULE TEMPO__genmod
+          INTERFACE 
+            SUBROUTINE TEMPO(IBOBO,ISEED)
+              INTEGER(KIND=4) :: IBOBO
+              INTEGER(KIND=4) :: ISEED
+            END SUBROUTINE TEMPO
+          END INTERFACE 
+        END MODULE TEMPO__genmod

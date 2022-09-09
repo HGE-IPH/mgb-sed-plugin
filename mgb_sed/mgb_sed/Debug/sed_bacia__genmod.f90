@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:33 2019
+        MODULE SED_BACIA__genmod
+          INTERFACE 
+            SUBROUTINE SED_BACIA
+              USE VARS_MAIN
+            END SUBROUTINE SED_BACIA
+          END INTERFACE 
+        END MODULE SED_BACIA__genmod

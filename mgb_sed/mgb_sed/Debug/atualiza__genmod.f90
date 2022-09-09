@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:27 2019
+        MODULE ATUALIZA__genmod
+          INTERFACE 
+            SUBROUTINE ATUALIZA
+              USE VARS_MAIN
+            END SUBROUTINE ATUALIZA
+          END INTERFACE 
+        END MODULE ATUALIZA__genmod

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="11.0" ProjectIdGuid="{CB067B98-9024-4215-8392-16909B50627B}">
+	<Platforms>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" Interfaces="true" WarnInterfaces="true" Traceback="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Debug|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" Interfaces="true" WarnInterfaces="true" Traceback="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole" HeapReserveSize="9999999" HeapCommitSize="9999999" StackReserveSize="99999999" StackCommitSize="99999999"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath=".\1main.f90"/>
+		<File RelativePath=".\Alloca_calib.f90"/>
+		<File RelativePath=".\ALLOCA_VARS.f90"/>
+		<File RelativePath=".\ARQCLISUB.f90"/>
+		<File RelativePath=".\ATUALIZA.f90"/>
+		<File RelativePath=".\Caldat.F90"/>
+		<File RelativePath=".\CalibParam.f90"/>
+		<File RelativePath=".\CALIBRA.f90"/>
+		<File RelativePath=".\Celula.f90"/>
+		<File RelativePath=".\CondInic.f90"/>
+		<File RelativePath=".\Evapo.f90"/>
+		<File RelativePath=".\Fobj.f90"/>
+		<File RelativePath=".\Funcd.f90"/>
+		<File RelativePath=".\HD_0_MAIN.F90"/>
+		<File RelativePath=".\HD_asolve.f90"/>
+		<File RelativePath=".\HD_atimes.f90"/>
+		<File RelativePath=".\HD_AUX_MOD.F90"/>
+		<File RelativePath=".\HD_BARR_MOD.F90"/>
+		<File RelativePath=".\HD_CHEIA_MOD.F90"/>
+		<File RelativePath=".\HD_COEF1.F90"/>
+		<File RelativePath=".\HD_COEF2.F90"/>
+		<File RelativePath=".\HD_CondInic.f90"/>
+		<File RelativePath=".\HD_dsprsax.f90"/>
+		<File RelativePath=".\HD_dsprstx.f90"/>
+		<File RelativePath=".\HD_FINT.f90"/>
+		<File RelativePath=".\HD_FINT2.f90"/>
+		<File RelativePath=".\HD_FUNC.F90"/>
+		<File RelativePath=".\HD_GRADBICONJ.F90"/>
+		<File RelativePath=".\HD_Hidrodinamico.f90"/>
+		<File RelativePath=".\HD_Hidrodinamico2.f90"/>
+		<File RelativePath=".\HD_INICIO.F90"/>
+		<File RelativePath=".\HD_INPUT2.F90"/>
+		<File RelativePath=".\HD_INTEP.F90"/>
+		<File RelativePath=".\HD_ITERA.F90"/>
+		<File RelativePath=".\HD_ITERA2.F90"/>
+		<File RelativePath=".\HD_linbcg.f90"/>
+		<File RelativePath=".\HD_MAT_MOD.F90"/>
+		<File RelativePath=".\HD_MATRIX.F90"/>
+		<File RelativePath=".\HD_MATRIX2.F90"/>
+		<File RelativePath=".\HD_MODULE SPAMAT.f90"/>
+		<File RelativePath=".\HD_PAR1_MOD.F90"/>
+		<File RelativePath=".\HD_PP_MOD.F90"/>
+		<File RelativePath=".\HD_SKYLIN.F90"/>
+		<File RelativePath=".\HD_SKYLINE0.F90"/>
+		<File RelativePath=".\HD_SKYOTM.F90"/>
+		<File RelativePath=".\HD_snrm.f90"/>
+		<File RelativePath=".\HD_SUB.F90"/>
+		<File RelativePath=".\HD_SUB2.F90"/>
+		<File RelativePath=".\HD_TIME_MOD.F90"/>
+		<File RelativePath=".\Inteclim.f90"/>
+		<File RelativePath=".\INTERPMUSK.F90"/>
+		<File RelativePath=".\Julday.f90"/>
+		<File RelativePath=".\LeCalib.f90"/>
+		<File RelativePath=".\Lecell.F90"/>
+		<File RelativePath=".\lechuva.f90"/>
+		<File RelativePath=".\leclima.F90"/>
+		<File RelativePath=".\Leclimed.f90"/>
+		<File RelativePath=".\LeFIX.F90"/>
+		<File RelativePath=".\LEOUTROSQ.F90"/>
+		<File RelativePath=".\leprev.f90"/>
+		<File RelativePath=".\LEQOBS.f90"/>
+		<File RelativePath=".\LESUBST.F90"/>
+		<File RelativePath=".\Leuso.f90"/>
+		<File RelativePath=".\Levar.f90"/>
+		<File RelativePath=".\Modelo.f90"/>
+		<File RelativePath=".\Musk.f90"/>
+		<File RelativePath=".\Musk_NL.f90"/>
+		<File RelativePath=".\Newtrap.f90"/>
+		<File RelativePath=".\PARCEL.f90"/>
+		<File RelativePath=".\Parcunge.f90"/>
+		<File RelativePath=".\PREV_ESP.F90"/>
+		<File RelativePath=".\PREVISAO.f90"/>
+		<File RelativePath=".\Radiacao.f90"/>
+		<File RelativePath=".\Ran1.f90"/>
+		<File RelativePath=".\rede.f90"/>
+		<File RelativePath=".\Region.f90"/>
+		<File RelativePath=".\SED_BACIA.F90"/>
+		<File RelativePath=".\SED_INICIAL.F90"/>
+		<File RelativePath=".\SED_NEWTON_H.f90"/>
+		<File RelativePath=".\SED_PARAM.F90"/>
+		<File RelativePath=".\SED_PROPAG.F90"/>
+		<File RelativePath=".\SED_REDE.F90"/>
+		<File RelativePath=".\SED_VARS.f90"/>
+		<File RelativePath=".\SED_VELOCITY.f90"/>
+		<File RelativePath=".\SED_YANG.f90"/>
+		<File RelativePath=".\Semente.f90"/>
+		<File RelativePath=".\SIMULA.f90"/>
+		<File RelativePath=".\Solo.f90"/>
+		<File RelativePath=".\Tempo.f90"/>
+		<File RelativePath=".\VARS_CALIB.f90"/>
+		<File RelativePath=".\VARS_MAIN.f90"/></Filter></Files>
+	<Globals/></VisualStudioProject>

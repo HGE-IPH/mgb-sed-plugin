@@ -1,0 +1,7 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:22 2019
+        MODULE SIMULA__genmod
+          INTERFACE 
+            SUBROUTINE SIMULA
+            END SUBROUTINE SIMULA
+          END INTERFACE 
+        END MODULE SIMULA__genmod

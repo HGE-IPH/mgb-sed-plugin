@@ -1,0 +1,78 @@
+	SUBROUTINE RADIACAO
+	!esta subrotina calcula a radiação líquida
+	!a partir de dados de horas de sol, temperatura,
+	!umidade relativa, albedo e data
+	USE VARS_MAIN
+	IMPLICIT NONE
+	!REAL GLAT !LATITUDE EM GRAUS DECIMAIS ( - SUL)
+	!REAL SOLX,T1,T2 !INSOLAÇÃO (H) E TEMPERATURAS (C)
+	!REAL ALBX !ALBEDO
+	!REAL RLX !RADIAÇÃO LIQUIDA RESULTANTE (MJ/m2/dia)
+	!INTEGER JDIA !dia do calendario juliano
+	!REAL RDIA !DIA JULIANO (real)
+	!REAL URX
+	!REAL,PARAMETER:: MESP=1000.0 !MASSA ESP. DA ÁGUA (KG/M3)
+	!REAL,PARAMETER:: PI=3.141592 !pi
+	!REAL,PARAMETER:: STEBOL=4.903E-9 !CONST. STEFAN BOLTZMANN
+	
+	!VARIAVEIS INTERNAS DA SUBROTINA
+	!REAL CLATE !calor latente de vaporização
+	!REAL SDECL,SANG !DECLINAÇÃO SOLAR,ANGULO AO NASCER
+	!REAL HIM !DURACAO MÁXIMA DA INSOLAÇÃO (HORAS)
+	!REAL DR !DISTANCIA REL. TERRA - SOL
+	!REAL GS,STO !FLUXO DE CALOR P/ SOLO, RAD. TOPO ATM.
+	!REAL SSUP,SN !FLUXO DE CALOR
+	!REAL ED,ES !PRESSÕES DE VAPOR (REAL, SATURAÇAO)
+	!REAL SLONG !RADIAÇÃO DE ONDAS LONGAS
+
+
+	!CALOR LATENTE DE VAPORIZAÇÃO - em MJ/Kg  - conforme cap. 4 do Handbook of Hydrology
+	CLATE=(2.501-0.002361*T2) !usa temperatura em C
+
+	!PRESSÃO DE SATURAÇÃO DO VAPOR DA ÁGUA
+	ES=0.6108*EXP((17.27*T2)/(237.3+T2)) !EM KPA !FMF em 06/05/2019 - correção da radiação
+	!PRESSÃO DE VAPOR REAL
+	ED=ES*URX/100.0 !EM KPA
+	!DECLINAÇÃO SOLAR - em rad  - conforme cap. 4 do Handbook of Hydrology
+	RDIA=JDIA
+	SDECL=0.4093*SIN((2*PI/365.0)*RDIA-1.405)
+	!SUNSET HOUR ANGLE (angulo na hora do nascente) - em rad - conforme cap. 4 do Handbook of Hydrology
+	SANG=ACOS(-TAND(GLAT)*TAN(SDECL)) !TAND É P/ GRAUS
+	!MÁXIMA DURAÇÃO DA INSOLAÇÃO - EM HORAS - conforme cap. 4 do Handbook of Hydrology
+	HIM=24*SANG/PI
+	!DISTANCIA RELATIVA ENTRE A TERRA E O SOL
+	DR=1.0+0.033*COS(2*PI*RDIA/365.0)
+	!RADIAÇÃO NO TOPO DA ATMOSFERA (EM MM/DIA)
+	STO=15.392*DR*(SANG*SIND(GLAT)*SIN(SDECL)+COSD(GLAT)*COS(SDECL)*SIN(SANG))
+	!CONVERTER PARA MJ/M2/DIA
+	STO=STO/1000.0 !AGORA EM M/DIA
+	STO=STO*MESP*CLATE !AGORA EM MJ/M2/DIA
+
+
+	IF (flagaclimed == 1) then
+		!CALCULA PARTE DA RADIAÇÃO QUE CHEGA À SUP. TERRESTRE
+		SSUP=STO*(0.25+0.5*SOLX/HIM) !EQ. 4.2.6 Handbook Hydrology
+	ELSE
+		!---- *** ---
+		! Dados (variavel SOLX) em termos de radiacao solar de onda curta incidente na superficie e nao insolacao	
+		SSUP=SOLX
+	ENDIF
+
+	!RETIRA A PARTE QUE REFLETE NA SUPERFÍCIE
+	SN=SSUP*(1-ALBX) !EQ. 4.2.5 Handbook of Hydrology
+	!CALCULA CALOR QUE É PERDIDO EM ONDAS LONGAS
+	SLONG=STEBOL*(T2+273.2)**4.0 !USA GRAUS KELVIN
+	SLONG=SLONG*(0.34-0.14*(ED)**0.5) !CORR. EMISSIVIDADE
+	!CORRIGE NEBULOSIDADE
+!	SLONG=SLONG*(0.9*SOLX/HIM+0.1) !CORRIGE NEBULOSIDADE
+	! Como dados (variavel SOLX) em termos de radiacao solar, utiliza equação Handbook of Hydrology:
+	! Utiliza parametros para áreas umidas para ficar de acordo com regiao amazônica.
+	SLONG=SLONG*(1.0*SSUP/STO+0.0) !CORRIGE NEBULOSIDADE
+
+
+	!FLUXO DE CALOR PARA O SOLO	 MJ/m2/dia
+	GS=0.38*(T2-T1) ! eq. 4.2.18 do Handbook of Hydrology
+	!RADIAÇÃO LÍQUIDA DISPONÍVEL (MJ/M2/DIA)
+	RLX=SN-SLONG-GS	!RETIRA ONDAS LONGAS E FLUXO P/ SOLO
+	RETURN
+	END

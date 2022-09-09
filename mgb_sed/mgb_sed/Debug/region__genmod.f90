@@ -1,0 +1,7 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:28 2019
+        MODULE REGION__genmod
+          INTERFACE 
+            SUBROUTINE REGION
+            END SUBROUTINE REGION
+          END INTERFACE 
+        END MODULE REGION__genmod

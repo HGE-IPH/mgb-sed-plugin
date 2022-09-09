@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:29 2019
+        MODULE CELULA__genmod
+          INTERFACE 
+            SUBROUTINE CELULA
+              USE VARS_MAIN
+            END SUBROUTINE CELULA
+          END INTERFACE 
+        END MODULE CELULA__genmod

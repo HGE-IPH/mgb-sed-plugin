@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:31 2019
+        MODULE PREVISAO__genmod
+          INTERFACE 
+            SUBROUTINE PREVISAO
+              USE VARS_MAIN
+            END SUBROUTINE PREVISAO
+          END INTERFACE 
+        END MODULE PREVISAO__genmod

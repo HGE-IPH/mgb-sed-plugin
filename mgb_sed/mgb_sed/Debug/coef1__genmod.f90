@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Apr 30 12:09:55 2019
+        MODULE COEF1__genmod
+          INTERFACE 
+            SUBROUTINE COEF1
+              USE PAR1_MOD
+            END SUBROUTINE COEF1
+          END INTERFACE 
+        END MODULE COEF1__genmod

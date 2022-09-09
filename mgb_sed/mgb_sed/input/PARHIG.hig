@@ -1,0 +1,39 @@
+GENERAL INFORMATIONS FILE FOR LARGE SCALE HYDROLOGIC MODEL
+!
+Project ex_aula_bacia_sinos_2010_2020
+!
+       DAY       MOUNTH       YEAR      HOUR          !SIMULATION START
+        1        1      2010         0
+
+        NT        DT       !TIME INTERVALS AND INTERVALS SIZE IN SECONDS
+      4018    86400.
+
+	    NC        NU        NB      NCLI   CRU_IND    RESERV     FLOOD ALPHA*100 !NUMBER OF CATCHMENTS, HRUs, SUB-BASINS, CLIMATE STATIONS, CRU_INDEX (1 USES CRU CLIMATE DATA), RESERVOIR INDEX, FLOOD ROUTING METHOD
+       108         9         2        -1         0         0         1        30
+
+    ICALIB							!INDICATES IF IT IS GONNA BE USED AUTOMATIC CALIBRATION (1) OR NOT (0) 
+         0	                        !OR IF IT WILL MAKE THE FORECAST (2)
+
+FILENAME WITH DAILY METEOROLOGICAL DATA 
+
+!FILENAME WITH AVERAGE MONTHLY METEOROLOGICAL DATA
+medias.cli 
+
+!STATIONS WITH OBSERVED FLOW DATA, FILENAME WITH DATA 
+3  QOBS.qob
+
+!NUMBER OF CELLS THAT CORRESPONDS TO FLU GAUGE WITH DATA                          
+ 99  104  106 
+
+!NUMBER OF POINTS TO RECORD HYDROGRAPHS
+ 3 
+
+!CELLS THAT CORRESPONDS TO THOSE POINTS 
+ 99
+104
+106 
+
+!Number of cells where calculated flow must be substituted for the one read from file and filename
+0  QSUBST.qsb
+
+!Cells which flow data will be substituted

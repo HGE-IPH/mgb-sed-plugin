@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:20 2019
+        MODULE SED_REDE__genmod
+          INTERFACE 
+            SUBROUTINE SED_REDE
+              USE SED_VARS
+            END SUBROUTINE SED_REDE
+          END INTERFACE 
+        END MODULE SED_REDE__genmod

@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon May 06 18:55:18 2019
+        MODULE LEUSO__genmod
+          INTERFACE 
+            SUBROUTINE LEUSO
+              USE VARS_MAIN
+            END SUBROUTINE LEUSO
+          END INTERFACE 
+        END MODULE LEUSO__genmod
