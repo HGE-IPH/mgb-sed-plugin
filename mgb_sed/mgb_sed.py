@@ -241,7 +241,7 @@ class MGBSED:
 
             #SED Geometry
             self.dlg.input_sed_geom1.setText('')
-            self.dlg.input_sed_geom2.setText('')
+            #self.dlg.input_sed_geom2.setText('')
 
             #SED Hydrological
             self.dlg.input_sed_hydro.setText('')
@@ -263,7 +263,7 @@ class MGBSED:
 
             #Click action
             self.dlg.open_geom1.clicked.connect(self.f_open_geom1)
-            self.dlg.open_geom2.clicked.connect(self.f_open_geom2)
+            #self.dlg.open_geom2.clicked.connect(self.f_open_geom2)
 
             self.dlg.open_hydro.clicked.connect(self.f_open_hydro) 
 
@@ -703,7 +703,7 @@ class MGBSED:
         plt.plot(df_result['date'],df_result[str(mini_bacia_num)],color='#003566', lw=0.5, label='Simulado')
         plt.plot(df[df['date']>=df_result['date'][0]]['date'],df[df['date']>=df_result['date'][0]]['SED'],color='k', marker = 'o',ms = 5, lw=0.0, label='Observado')
         plt.title("Minibacia "+ str(mini_bacia_num))
-        plt.ylabel('Sediments (XXXX)')
+        plt.ylabel('Sediments (mg/L)')
         plt.xlabel('date')
         plt.grid()
 
@@ -1019,7 +1019,7 @@ class MGBSED:
         print("task 2")
         globals()['task2'] = Step2('Running MGB SED.', 10,
         self.dlg.input_sed_geom1.toPlainText(),
-        self.dlg.input_sed_geom2.toPlainText(),
+        #self.dlg.input_sed_geom2.toPlainText(),
         self.dlg.input_sed_hydro.toPlainText(),
         self.dlg.input_sed_cli1.toPlainText(),
         self.dlg.input_sed_cli2.toPlainText(),
@@ -1074,9 +1074,9 @@ class MGBSED:
         fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="GTP file (*.gtp);;")
         self.dlg.input_sed_geom1.setText(fileName[0]) 
 
-    def f_open_geom2(self):
-        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
-        self.dlg.input_sed_geom2.setText(fileName[0])
+    #def f_open_geom2(self):
+    #    fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
+    #    self.dlg.input_sed_geom2.setText(fileName[0])
 
     def f_open_hydro(self):
         fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="QOB file (*.qob);;")
@@ -1087,20 +1087,20 @@ class MGBSED:
         self.dlg.input_sed_cli1.setText(fileName[0])    
 
     def f_open_cli2(self):
-        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
+        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file, PBI file (*.hig *.PBI);;")
         self.dlg.input_sed_cli2.setText(fileName[0])
 
     def f_open_par1(self):
-        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
+        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file, Fix file (*.hig *.fix);")
         self.dlg.input_sed_par1.setText(fileName[0]) 
 
     def f_open_par2(self):
-        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
+        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file, CAL  file (*.hig *.cal);;")
         self.dlg.input_sed_par2.setText(fileName[0])
 
 
     def f_open_par3(self):
-        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file (*.hig);;")
+        fileName = QFileDialog.getOpenFileName(None, 'OpenFile','',filter="Hydrological file, Simulation file (*.hig *sim);;")
         self.dlg.input_sed_par3.setText(fileName[0])  
 
     def f_open_sed1(self):
@@ -1281,7 +1281,7 @@ class Step1(QgsTask):
 class Step2(QgsTask):
     """This shows how to subclass QgsTask"""
 
-    def __init__(self, description, duration,minigtp, cell, discharge, climate_average, chuva, veg,soil, par_hig, 
+    def __init__(self, description, duration,minigtp, discharge, climate_average, chuva, veg,soil, par_hig, 
                     sed_hru, sed_lsm, sed_sdr, sedpar_text, sedpar_factor, output_project, progressbar, dlg_widgets):
 
         super().__init__(description, QgsTask.CanCancel)
@@ -1289,15 +1289,15 @@ class Step2(QgsTask):
         self.total = 0
         self.iterations = 0
         self.exception = None
-        self.mini_file = minigtp
-        self.cell_file = cell
-        self.discharge_file = discharge
-        self.climate_average_file = climate_average
-        self.chuva_file = chuva
-        self.veg_file = veg
-        self.soil_file = soil
-        self.par_hig_file = par_hig
-        self.sed_hru_file = sed_hru
+        self.mini_file = minigtp #TODO: minigtp is equal cell_file.
+        #self.cell_file = cell
+        self.discharge_file = discharge #QOBS
+        self.climate_average_file = climate_average  #MediasCli
+        self.chuva_file = chuva #CHUVA BIN
+        self.veg_file = veg  # PARFACT
+        self.soil_file = soil #PARUSO
+        self.par_hig_file = par_hig #infoMGB
+        self.sed_hru_file = sed_hru 
         self.sed_lsm_file = sed_lsm
         self.sed_sdr_file = sed_sdr
         self.sedpar_text_file = sedpar_text
@@ -1342,6 +1342,9 @@ class Step2(QgsTask):
 
 
             return output
+        
+
+
 
         QgsMessageLog.logMessage('Started task "{}"'.format(
             self.description()), MESSAGE_CATEGORY, Qgis.Info)
@@ -1370,9 +1373,9 @@ class Step2(QgsTask):
         progress_count(self.progress_value, 50)
         #change to txt files
 
-        mini_gtp = save_to_input_folder(self.mini_file, directory_input,'\\MINI.gtp')
+        mini_gtp = save_to_input_folder(self.mini_file, directory_input,'\\Cell.hig') #\MINI.gtp
     
-        cell_file = save_to_input_folder(self.cell_file, directory_input,'\\Cell.hig')
+        #cell_file = save_to_input_folder(self.cell_file, directory_input,'\\Cell.hig')
         qobs_file = save_to_input_folder(self.discharge_file, directory_input,'\\QOBS.qob')
         climate_average_file = save_to_input_folder(self.climate_average_file,directory_input,'\\medias.cli')
 
